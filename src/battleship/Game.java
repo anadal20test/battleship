@@ -45,8 +45,8 @@ public class Game {
             ubibarcocolumna2 = (int) (Math.random() * 5) + 1;
         } while (ubibarcofila1 == ubibarcofila2 && ubibarcocolumna1 == ubibarcocolumna2);
 
-        System.out.println("Els baixell 1 s'ubica a la posició ("+ubibarcofila1+","+ubibarcocolumna1+")");
-        System.out.println("Els baixell 2 s'ubica a la posició ("+ubibarcofila2+","+ubibarcocolumna2+")");
+        System.out.println("Ship 1 is located at ("+ubibarcofila1+","+ubibarcocolumna1+")");
+        System.out.println("Ship 2 is located at ("+ubibarcofila2+","+ubibarcocolumna2+")");
         
         // Condición del juego
         int contadorbarcos = 2;
@@ -68,31 +68,31 @@ public class Game {
 
             int filajugador = 0;
             // Pedir el número 
-            System.out.println("Introduce la fila (1-5): ");
+            System.out.println("Enter the row (1-5): ");
 
             while (filajugador == 0) {
                 if (in.hasNextInt()) {
                     filajugador = in.nextInt();
                 } else {
                     in.next();
-                    System.out.println("Tiene que ser un entero entre el 1 y el 5:");
+                    System.out.println("It must be an integer value between 1 and 5:");
                 }
                 in.nextLine();
             }
 
             //Verificar el rango de números 
             while (filajugador < 1 || filajugador > 5) {
-                System.out.println("Mal. Ingresa un número de fila correcto dentro del rango (1-5).");
+                System.out.println("Error. Please enter a valid row value in the range (1-5).");
                 filajugador = in.nextInt();
             }
 
             //Pedir la letra
-            System.out.println("Introduce la columna (A-E): ");
+            System.out.println("Enter the column (A-E): ");
             String columnajugador = in.next().toUpperCase();
             System.out.println(columnajugador);
             //Verificar el rando de letras<<<
             while (!(columnajugador.equals("A") || columnajugador.equals("B") || columnajugador.equals("C") || columnajugador.equals("D") || columnajugador.equals("E") )) {
-                System.out.println("Mal. Ingresa una letra de columna correcta dentro del rango (A-E).");
+                System.out.println("Error. Enter the letter of a column in the range (A-E).");
                 columnajugador = in.next().toUpperCase();
             }
            
@@ -121,11 +121,11 @@ public class Game {
             // Validar entrada del jugador
             if ((filajugador == ubibarcofila1 && letra == ubibarcocolumna1)
                     || (filajugador == ubibarcofila2 && letra == ubibarcocolumna2)) {
-                System.out.println("¡Has acertado un barco!");
+                System.out.println("¡A ship has been destroyed!");
                 M1[filajugador - 1][letra - 1] = 'V';
                 contadorbarcos--;
             } else {
-                System.out.println("¡Agua!");
+                System.out.println("¡Water!");
                 M1[filajugador - 1][letra - 1] = 'A';
             }
         }
